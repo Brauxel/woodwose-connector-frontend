@@ -1,3 +1,3 @@
 export const Home = () => {
-  return <div className="App">Home</div>
+  return <div className="App">Welcome to WoodWose connector</div>
 }
