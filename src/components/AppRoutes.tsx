@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
-import { Home } from './Home'
-import { WooCommerceInventory } from './WooCommerceInventory'
+import { Home } from './pages/Home'
+import { WooCommerceInventory } from './pages/WooCommerceInventory'
 
 export const AppRoutes = () => (
   <Routes>
