@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ThHTMLAttributes } from 'react'
 import styled from 'styled-components'
 
 interface TableHeadComponentProps {
@@ -7,7 +7,7 @@ interface TableHeadComponentProps {
   borderColor?: string
 }
 
-interface TableHeadProps {
+interface TableHeadProps extends ThHTMLAttributes<HTMLElement> {
   children: React.ReactNode
   styles?: TableHeadComponentProps
 }

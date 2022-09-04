@@ -1,15 +1,14 @@
-import React from 'react'
+import React, { TableHTMLAttributes } from 'react'
 import styled from 'styled-components'
 
 interface TableComponentProps {
   borderWidth?: string
   borderStyle?: string
   borderColor?: string
-  width?: string
   textAlign?: string
 }
 
-interface TableProps {
+interface TableProps extends TableHTMLAttributes<HTMLElement> {
   children: React.ReactNode
   styles?: TableComponentProps
 }
@@ -18,12 +17,11 @@ const TableComponent = styled.table<TableComponentProps>`
   border-width: ${({ borderWidth }) => borderWidth || '1px'};
   border-style: ${({ borderStyle }) => borderStyle || 'solid'};
   border-color: ${({ borderColor }) => borderColor || 'black'};
-  width: ${({ width }) => width || '100%'};
   text-align: ${({ textAlign }) => textAlign || 'left'};
 `
 
-export const Table: React.FC<TableProps> = ({ children, styles }) => (
-  <TableComponent data-testid="table-component" {...styles}>
+export const Table: React.FC<TableProps> = ({ children, styles, ...props }) => (
+  <TableComponent data-testid="table-component" {...props} {...styles}>
     {children}
   </TableComponent>
 )

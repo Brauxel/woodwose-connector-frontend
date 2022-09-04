@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { TdHTMLAttributes } from 'react'
 import styled from 'styled-components'
 
 interface TableColumnComponentProps {
@@ -7,7 +7,7 @@ interface TableColumnComponentProps {
   borderColor?: string
 }
 
-interface TableRowColumnProps {
+interface TableColumnProps extends TdHTMLAttributes<HTMLElement> {
   children: React.ReactNode
   styles?: TableColumnComponentProps
 }
@@ -18,7 +18,12 @@ const TableColumnComponent = styled.td<TableColumnComponentProps>`
   border-color: ${({ borderColor }) => borderColor || 'black'};
 `
 
-export const TableColumn: React.FC<TableRowColumnProps> = ({
+export const TableColumn: React.FC<TableColumnProps> = ({
   children,
   styles,
-}) => <TableColumnComponent {...styles}>{children}</TableColumnComponent>
+  ...props
+}) => (
+  <TableColumnComponent {...props} {...styles}>
+    {children}
+  </TableColumnComponent>
+)

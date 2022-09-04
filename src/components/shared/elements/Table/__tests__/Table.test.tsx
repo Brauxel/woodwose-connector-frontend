@@ -1,5 +1,4 @@
 import reactRenderer from 'react-test-renderer'
-import { render } from '@testing-library/react'
 import { Table } from '..'
 import { TableRow } from '../../../molecules/TableRow'
 import { TableColumn } from '../../../atoms/TableColumn'
@@ -24,6 +23,25 @@ describe('Table Component', () => {
     it('snapshots should match when default styles are used', () => {
       const tableComponent = reactRenderer.create(
         <Table>
+          <TableRow>
+            <TableColumn>This is a table column</TableColumn>
+          </TableRow>
+        </Table>
+      )
+
+      expect(tableComponent.toJSON()).toMatchSnapshot()
+    })
+
+    it('snapshots should match when custom styles are used', () => {
+      const tableComponent = reactRenderer.create(
+        <Table
+          width="80%"
+          styles={{
+            borderColor: 'blue',
+            borderWidth: '2px',
+            borderStyle: 'dotted',
+          }}
+        >
           <TableRow>
             <TableColumn>This is a table column</TableColumn>
           </TableRow>

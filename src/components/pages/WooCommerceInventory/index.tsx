@@ -16,10 +16,10 @@ export const WooCommerceInventory = () => {
         </TableRow>
 
         <TableRow>
-          <TableColumn>
-            Men&apos;s 100 % Organic Cotton Tee- Black T-shirt
+          <TableColumn rowSpan={5}>
+            Men&apos;s Bamboo Tee- Dark Grey T-shirt
           </TableColumn>
-          <TableColumn>SKU goes here</TableColumn>
+          <TableColumn rowSpan={5}>BAMTSDG02</TableColumn>
           <TableColumn>₹569</TableColumn>
           <TableColumn>S</TableColumn>
           <TableColumn>
@@ -34,15 +34,127 @@ export const WooCommerceInventory = () => {
         </TableRow>
 
         <TableRow>
+          <TableColumn>₹569</TableColumn>
+          <TableColumn>M</TableColumn>
           <TableColumn>
-            Men&apos;s 100 % Organic Cotton Tee- Brittany Blue T-shirt
+            <a
+              href="https://woodwose.in/product/mens-100-organic-cotton-black-t-shirt/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Click here to view the product on our website
+            </a>
           </TableColumn>
-          <TableColumn>SKU goes here</TableColumn>
-          <TableColumn>₹469</TableColumn>
+        </TableRow>
+
+        <TableRow>
+          <TableColumn>₹569</TableColumn>
+          <TableColumn>L</TableColumn>
+          <TableColumn>
+            <a
+              href="https://woodwose.in/product/mens-100-organic-cotton-black-t-shirt/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Click here to view the product on our website
+            </a>
+          </TableColumn>
+        </TableRow>
+
+        <TableRow>
+          <TableColumn>₹569</TableColumn>
+          <TableColumn>XL</TableColumn>
+          <TableColumn>
+            <a
+              href="https://woodwose.in/product/mens-100-organic-cotton-black-t-shirt/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Click here to view the product on our website
+            </a>
+          </TableColumn>
+        </TableRow>
+
+        <TableRow>
+          <TableColumn>₹569</TableColumn>
+          <TableColumn>XXL</TableColumn>
+          <TableColumn>
+            <a
+              href="https://woodwose.in/product/mens-100-organic-cotton-black-t-shirt/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Click here to view the product on our website
+            </a>
+          </TableColumn>
+        </TableRow>
+
+        <TableRow>
+          <TableColumn rowSpan={5}>
+            Women&apos;s Bamboo Tank Top-Dark Grey
+          </TableColumn>
+          <TableColumn rowSpan={5}>BAWTTDG02</TableColumn>
+          <TableColumn>₹699</TableColumn>
           <TableColumn>S</TableColumn>
           <TableColumn>
             <a
-              href="https://woodwose.in/product/100-organic-cotton-mens-brittany-blue-t-shirt/"
+              href="https://woodwose.in/product/womens-dark-grey-tank-top/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Click here to view the product on our website
+            </a>
+          </TableColumn>
+        </TableRow>
+
+        <TableRow>
+          <TableColumn>₹699</TableColumn>
+          <TableColumn>M</TableColumn>
+          <TableColumn>
+            <a
+              href="https://woodwose.in/product/womens-dark-grey-tank-top/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Click here to view the product on our website
+            </a>
+          </TableColumn>
+        </TableRow>
+
+        <TableRow>
+          <TableColumn>₹699</TableColumn>
+          <TableColumn>L</TableColumn>
+          <TableColumn>
+            <a
+              href="https://woodwose.in/product/womens-dark-grey-tank-top/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Click here to view the product on our website
+            </a>
+          </TableColumn>
+        </TableRow>
+
+        <TableRow>
+          <TableColumn>₹699</TableColumn>
+          <TableColumn>XL</TableColumn>
+          <TableColumn>
+            <a
+              href="https://woodwose.in/product/womens-dark-grey-tank-top/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Click here to view the product on our website
+            </a>
+          </TableColumn>
+        </TableRow>
+
+        <TableRow>
+          <TableColumn>₹699</TableColumn>
+          <TableColumn>XXL</TableColumn>
+          <TableColumn>
+            <a
+              href="https://woodwose.in/product/womens-dark-grey-tank-top/"
               target="_blank"
               rel="noreferrer"
             >
