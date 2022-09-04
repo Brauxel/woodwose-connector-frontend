@@ -21,7 +21,12 @@ const TableComponent = styled.table<TableComponentProps>`
 `
 
 export const Table: React.FC<TableProps> = ({ children, styles, ...props }) => (
-  <TableComponent data-testid="table-component" {...props} {...styles}>
+  <TableComponent
+    data-testid="table-component"
+    width="100%"
+    {...props}
+    {...styles}
+  >
     {children}
   </TableComponent>
 )

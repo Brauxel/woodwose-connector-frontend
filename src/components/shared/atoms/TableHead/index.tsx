@@ -18,6 +18,12 @@ const TableHeadComponent = styled.td<TableHeadComponentProps>`
   border-color: ${({ borderColor }) => borderColor || 'black'};
 `
 
-export const TableHead: React.FC<TableHeadProps> = ({ children, styles }) => (
-  <TableHeadComponent {...styles}>{children}</TableHeadComponent>
+export const TableHead: React.FC<TableHeadProps> = ({
+  children,
+  styles,
+  ...props
+}) => (
+  <TableHeadComponent {...props} {...styles}>
+    {children}
+  </TableHeadComponent>
 )
