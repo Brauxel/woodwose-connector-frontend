@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table Component snapshots snapshots should match when default styles are used 1`] = `
+<table
+  className="sc-bczRLJ hUMGXR"
+  data-testid="table-component"
+>
+  <tr>
+    <td
+      className="sc-gsnTZi ibvJHk"
+    >
+      This is a table column
+    </td>
+  </tr>
+</table>
+`;
