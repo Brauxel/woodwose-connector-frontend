@@ -1,14 +1,24 @@
 import React from 'react'
 import styled from 'styled-components'
 
-interface TableRowColumnProps {
-  children: React.ReactNode
+interface TableColumnComponentProps {
+  borderWidth?: string
+  borderStyle?: string
+  borderColor?: string
 }
 
-const TableColumnComponent = styled.td`
-  border: 1px solid black;
+interface TableRowColumnProps {
+  children: React.ReactNode
+  styles?: TableColumnComponentProps
+}
+
+const TableColumnComponent = styled.td<TableColumnComponentProps>`
+  border-width: ${({ borderWidth }) => borderWidth || '1px'};
+  border-style: ${({ borderStyle }) => borderStyle || 'solid'};
+  border-color: ${({ borderColor }) => borderColor || 'black'};
 `
 
-export const TableColumn: React.FC<TableRowColumnProps> = ({ children }) => (
-  <TableColumnComponent>{children}</TableColumnComponent>
-)
+export const TableColumn: React.FC<TableRowColumnProps> = ({
+  children,
+  styles,
+}) => <TableColumnComponent {...styles}>{children}</TableColumnComponent>
