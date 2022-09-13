@@ -1,9 +1,24 @@
+import { keys, remove } from 'lodash'
 import { TableColumn } from '../../shared/atoms/TableColumn'
 import { TableHead } from '../../shared/atoms/TableHead'
 import { Table } from '../../shared/elements/Table'
 import { TableRow } from '../../shared/molecules/TableRow'
 
-const products = [
+interface ProductVariations {
+  id: number
+  sku: string
+  price: string
+  size: string
+  quantity: number
+  permalink: string
+}
+interface ProductData {
+  name: string
+  id: number
+  variations: ProductVariations[]
+}
+
+const productsData: ProductData[] = [
   {
     name: "Men's Bamboo Tee- Dark Grey T-shirt",
     id: 5015,
@@ -13,7 +28,7 @@ const products = [
         sku: 'BAMTSDG02--S',
         price: '899',
         size: 'S',
-        stock_quantity: 1,
+        quantity: 1,
         permalink:
           'https://woodwose.in/product/mens-bamboo-dark-grey-t-shirt/?attribute_pa_size=s',
       },
@@ -22,7 +37,7 @@ const products = [
         sku: 'BAMTSDG02--M',
         price: '899',
         size: 'M',
-        stock_quantity: 2,
+        quantity: 2,
         permalink:
           'https://woodwose.in/product/mens-bamboo-dark-grey-t-shirt/?attribute_pa_size=m',
       },
@@ -31,7 +46,7 @@ const products = [
         sku: 'BAMTSDG02--L',
         price: '999',
         size: 'L',
-        stock_quantity: 1,
+        quantity: 1,
         permalink:
           'https://woodwose.in/product/mens-bamboo-dark-grey-t-shirt/?attribute_pa_size=l',
       },
@@ -40,7 +55,7 @@ const products = [
         sku: 'BAMTSDG02--XL',
         price: '899',
         size: 'XL',
-        stock_quantity: 2,
+        quantity: 2,
         permalink:
           'https://woodwose.in/product/mens-bamboo-dark-grey-t-shirt/?attribute_pa_size=xl',
       },
@@ -49,7 +64,7 @@ const products = [
         sku: 'BAMTSDG02--XXL',
         price: '1099',
         size: 'XXL',
-        stock_quantity: 3,
+        quantity: 3,
         permalink:
           'https://woodwose.in/product/mens-bamboo-dark-grey-t-shirt/?attribute_pa_size=xxl',
       },
@@ -64,7 +79,7 @@ const products = [
         sku: 'BAMTSDG02--S',
         price: '899',
         size: 'S',
-        stock_quantity: 1,
+        quantity: 1,
         permalink:
           'https://woodwose.in/product/mens-bamboo-dark-grey-t-shirt/?attribute_pa_size=s',
       },
@@ -73,7 +88,7 @@ const products = [
         sku: 'BAMTSDG02--M',
         price: '899',
         size: 'M',
-        stock_quantity: 2,
+        quantity: 2,
         permalink:
           'https://woodwose.in/product/mens-bamboo-dark-grey-t-shirt/?attribute_pa_size=m',
       },
@@ -82,7 +97,7 @@ const products = [
         sku: 'BAMTSDG02--L',
         price: '999',
         size: 'L',
-        stock_quantity: 1,
+        quantity: 1,
         permalink:
           'https://woodwose.in/product/mens-bamboo-dark-grey-t-shirt/?attribute_pa_size=l',
       },
@@ -91,7 +106,7 @@ const products = [
         sku: 'BAMTSDG02--XL',
         price: '899',
         size: 'XL',
-        stock_quantity: 2,
+        quantity: 2,
         permalink:
           'https://woodwose.in/product/mens-bamboo-dark-grey-t-shirt/?attribute_pa_size=xl',
       },
@@ -100,7 +115,7 @@ const products = [
         sku: 'BAMTSDG02--XXL',
         price: '1099',
         size: 'XXL',
-        stock_quantity: 3,
+        quantity: 3,
         permalink:
           'https://woodwose.in/product/mens-bamboo-dark-grey-t-shirt/?attribute_pa_size=xxl',
       },
@@ -109,20 +124,24 @@ const products = [
 ]
 
 export const WooCommerceInventory = () => {
+  const tableTitles = remove(['Name', ...keys(productsData[0].variations[0])])
+  remove(tableTitles, (n) => n === 'id')
+
   return (
     <>
       <Table>
-        <thead>
-          <TableRow>
-            <TableHead>Name</TableHead>
-            <TableHead>SKU</TableHead>
-            <TableHead>Price</TableHead>
-            <TableHead>Size</TableHead>
-            <TableHead>Quantity</TableHead>
-            <TableHead>Link</TableHead>
-          </TableRow>
-        </thead>
-        {products.map((product) => {
+        {tableTitles.length < 0 ? (
+          ''
+        ) : (
+          <thead>
+            <TableRow>
+              {tableTitles.map((title, index) => (
+                <TableHead key={title + index}>{title}</TableHead>
+              ))}
+            </TableRow>
+          </thead>
+        )}
+        {productsData.map((product) => {
           return (
             <tbody key={product.id}>
               <TableRow key={product.variations[0].id}>
@@ -132,9 +151,7 @@ export const WooCommerceInventory = () => {
                 <TableColumn>{product.variations[0].sku}</TableColumn>
                 <TableColumn>₹{product.variations[0].price}</TableColumn>
                 <TableColumn>{product.variations[0].size}</TableColumn>
-                <TableColumn>
-                  {product.variations[0].stock_quantity}
-                </TableColumn>
+                <TableColumn>{product.variations[0].quantity}</TableColumn>
                 <TableColumn>
                   <a
                     href={product.variations[0].permalink}
@@ -153,7 +170,7 @@ export const WooCommerceInventory = () => {
                     <TableColumn>{variation.sku}</TableColumn>
                     <TableColumn>{variation.price}</TableColumn>
                     <TableColumn>{variation.size}</TableColumn>
-                    <TableColumn>{variation.stock_quantity}</TableColumn>
+                    <TableColumn>{variation.quantity}</TableColumn>
                     <TableColumn>
                       <a
                         href={variation.permalink}

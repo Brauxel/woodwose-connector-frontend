@@ -12,10 +12,11 @@ interface TableHeadProps extends ThHTMLAttributes<HTMLElement> {
   styles?: TableHeadComponentProps
 }
 
-const TableHeadComponent = styled.td<TableHeadComponentProps>`
+const TableHeadComponent = styled.th<TableHeadComponentProps>`
   border-width: ${({ borderWidth }) => borderWidth || '1px'};
   border-style: ${({ borderStyle }) => borderStyle || 'solid'};
   border-color: ${({ borderColor }) => borderColor || 'black'};
+  text-transform: capitalize;
 `
 
 export const TableHead: React.FC<TableHeadProps> = ({
