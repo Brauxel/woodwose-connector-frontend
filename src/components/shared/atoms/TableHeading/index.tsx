@@ -7,24 +7,24 @@ interface TableHeadComponentProps {
   borderColor?: string
 }
 
-interface TableHeadProps extends ThHTMLAttributes<HTMLElement> {
+interface TableHeadingProps extends ThHTMLAttributes<HTMLElement> {
   children: React.ReactNode
   styles?: TableHeadComponentProps
 }
 
-const TableHeadComponent = styled.th<TableHeadComponentProps>`
+const TableHeadingComponent = styled.th<TableHeadComponentProps>`
   border-width: ${({ borderWidth }) => borderWidth || '1px'};
   border-style: ${({ borderStyle }) => borderStyle || 'solid'};
   border-color: ${({ borderColor }) => borderColor || 'black'};
   text-transform: capitalize;
 `
 
-export const TableHead: React.FC<TableHeadProps> = ({
+export const TableHeading: React.FC<TableHeadingProps> = ({
   children,
   styles,
   ...props
 }) => (
-  <TableHeadComponent {...props} {...styles}>
+  <TableHeadingComponent {...props} {...styles}>
     {children}
-  </TableHeadComponent>
+  </TableHeadingComponent>
 )

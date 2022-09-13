@@ -1,7 +1,9 @@
 import { keys, remove } from 'lodash'
 import { TableColumn } from '../../shared/atoms/TableColumn'
-import { TableHead } from '../../shared/atoms/TableHead'
+import { TableHeading } from '../../shared/atoms/TableHeading'
 import { Table } from '../../shared/elements/Table'
+import { TableBody } from '../../shared/molecules/TableBody'
+import { TableHead } from '../../shared/molecules/TableHead'
 import { TableRow } from '../../shared/molecules/TableRow'
 
 interface ProductVariations {
@@ -133,17 +135,17 @@ export const WooCommerceInventory = () => {
         {tableTitles.length < 0 ? (
           ''
         ) : (
-          <thead>
+          <TableHead>
             <TableRow>
               {tableTitles.map((title, index) => (
-                <TableHead key={title + index}>{title}</TableHead>
+                <TableHeading key={title + index}>{title}</TableHeading>
               ))}
             </TableRow>
-          </thead>
+          </TableHead>
         )}
         {productsData.map((product) => {
           return (
-            <tbody key={product.id}>
+            <TableBody key={product.id}>
               <TableRow key={product.variations[0].id}>
                 <TableColumn rowSpan={product.variations.length}>
                   {product.name}
@@ -183,7 +185,7 @@ export const WooCommerceInventory = () => {
                   </TableRow>
                 )
               })}
-            </tbody>
+            </TableBody>
           )
         })}
       </Table>
