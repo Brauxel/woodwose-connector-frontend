@@ -16,7 +16,7 @@ export const createTableHolderRowDataFromInventory = (
 
   for (let i = 0; i < productsData.length; i++) {
     tableData.push({
-      id: productsData[i].id,
+      id: productsData[i].variations[0].id,
       colData: [
         {
           id: productsData[i].id + '-name',
@@ -26,31 +26,31 @@ export const createTableHolderRowDataFromInventory = (
           },
         },
         {
-          id: productsData[i].id + '-sku',
+          id: productsData[i].variations[0].id + '-sku',
           contentEntry: {
             content: productsData[i].variations[0].sku,
           },
         },
         {
-          id: productsData[i].id + '-price',
+          id: productsData[i].variations[0].id + '-price',
           contentEntry: {
             content: productsData[i].variations[0].price,
           },
         },
         {
-          id: productsData[i].id + '-size',
+          id: productsData[i].variations[0].id + '-size',
           contentEntry: {
             content: productsData[i].variations[0].size,
           },
         },
         {
-          id: productsData[i].id + '-quantity',
+          id: productsData[i].variations[0].id + '-quantity',
           contentEntry: {
             content: productsData[i].variations[0].quantity,
           },
         },
         {
-          id: productsData[i].id + '-permalink',
+          id: productsData[i].variations[0].id + '-permalink',
           contentEntry: {
             content: productsData[i].variations[0].permalink,
           },
