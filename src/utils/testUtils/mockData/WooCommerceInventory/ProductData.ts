@@ -44,7 +44,7 @@ export const productsData: ProductData[] = [
       {
         id: 5016,
         sku: 'BAMTSDG02--XXL',
-        price: '1099',
+        price: '899',
         size: 'XXL',
         quantity: 3,
         permalink:
@@ -58,48 +58,48 @@ export const productsData: ProductData[] = [
     variations: [
       {
         id: 5031,
-        sku: 'BAMTSDG02--S',
-        price: '899',
+        sku: 'ZAMTSDG02--S',
+        price: '1099',
         size: 'S',
         quantity: 1,
         permalink:
-          'https://woodwose.in/product/mens-bamboo-dark-grey-t-shirt/?attribute_pa_size=s',
+          'https://woodwose.in/product/womens-bamboo-dark-grey-t-shirt/?attribute_pa_size=s',
       },
       {
         id: 5032,
-        sku: 'BAMTSDG02--M',
-        price: '899',
+        sku: 'ZAMTSDG02--M',
+        price: '1099',
         size: 'M',
         quantity: 2,
         permalink:
-          'https://woodwose.in/product/mens-bamboo-dark-grey-t-shirt/?attribute_pa_size=m',
+          'https://woodwose.in/product/womens-bamboo-dark-grey-t-shirt/?attribute_pa_size=m',
       },
       {
         id: 5033,
-        sku: 'BAMTSDG02--L',
-        price: '999',
+        sku: 'ZAMTSDG02--L',
+        price: '1099',
         size: 'L',
         quantity: 1,
         permalink:
-          'https://woodwose.in/product/mens-bamboo-dark-grey-t-shirt/?attribute_pa_size=l',
+          'https://woodwose.in/product/womens-bamboo-dark-grey-t-shirt/?attribute_pa_size=l',
       },
       {
         id: 5034,
-        sku: 'BAMTSDG02--XL',
-        price: '899',
+        sku: 'ZAMTSDG02--XL',
+        price: '1099',
         size: 'XL',
         quantity: 2,
         permalink:
-          'https://woodwose.in/product/mens-bamboo-dark-grey-t-shirt/?attribute_pa_size=xl',
+          'https://woodwose.in/product/womens-bamboo-dark-grey-t-shirt/?attribute_pa_size=xl',
       },
       {
         id: 5035,
-        sku: 'BAMTSDG02--XXL',
+        sku: 'ZAMTSDG02--XXL',
         price: '1099',
         size: 'XXL',
         quantity: 3,
         permalink:
-          'https://woodwose.in/product/mens-bamboo-dark-grey-t-shirt/?attribute_pa_size=xxl',
+          'https://woodwose.in/product/womens-bamboo-dark-grey-t-shirt/?attribute_pa_size=xxl',
       },
     ],
   },
