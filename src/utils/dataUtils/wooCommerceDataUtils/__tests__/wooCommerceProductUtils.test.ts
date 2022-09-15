@@ -1,6 +1,9 @@
 import { RowDataType } from '../../../../components/shared/organisms/TableHolder'
 import { productsData } from '../../../testUtils/mockData/WooCommerceInventory/ProductData'
-import { createTableHolderRowDataFromInventory } from '../wooCommerceProductUtils'
+import {
+  addVariationInformationToColData,
+  createTableHolderRowDataFromInventory,
+} from '../wooCommerceProductUtils'
 
 const rowsData: RowDataType[] = [
   {
@@ -388,5 +391,33 @@ describe('ProductData', () => {
   it('should return an empty array when an empty array is provide', () => {
     const result = createTableHolderRowDataFromInventory([])
     expect(result).toStrictEqual([])
+  })
+})
+
+describe('addVariationInformationToColData', () => {
+  it('should add variation information to a colsData with the name of the product stored in it', () => {
+    expect(
+      addVariationInformationToColData(
+        [
+          {
+            id: productsData[0].id + '-name',
+            contentEntry: {
+              rowSpan: productsData[0].variations.length,
+              content: productsData[0].name,
+            },
+          },
+        ],
+        productsData[0].variations[0]
+      )
+    ).toStrictEqual(rowsData[0].colData)
+  })
+
+  it('should add the colsData without the name of the product stored in it', () => {
+    const expectedResult = [...rowsData[0].colData]
+    expectedResult.shift()
+
+    expect(
+      addVariationInformationToColData([], productsData[0].variations[0])
+    ).toStrictEqual(expectedResult)
   })
 })
