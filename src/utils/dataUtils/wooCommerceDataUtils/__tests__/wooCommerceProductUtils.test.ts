@@ -380,9 +380,13 @@ const rowsData: RowDataType[] = [
 ]
 
 describe('ProductData', () => {
-  it('should create table holder data', () => {
+  it('should create table holder data when product data is provided', () => {
     const result = createTableHolderRowDataFromInventory(productsData)
-
     expect(result).toStrictEqual(rowsData)
+  })
+
+  it('should return an empty array when an empty array is provide', () => {
+    const result = createTableHolderRowDataFromInventory([])
+    expect(result).toStrictEqual([])
   })
 })

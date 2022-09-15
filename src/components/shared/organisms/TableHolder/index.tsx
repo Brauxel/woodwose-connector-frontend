@@ -12,7 +12,7 @@ interface ContentEntryType {
   content?: React.ReactNode
 }
 
-interface ColDataType {
+export interface ColDataType {
   id: number | string
   contentEntry: ContentEntryType
 }

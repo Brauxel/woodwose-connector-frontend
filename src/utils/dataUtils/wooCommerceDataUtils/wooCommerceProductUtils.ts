@@ -1,6 +1,9 @@
 import { keys, remove } from 'lodash'
-import { RowDataType } from '../../../components/shared/organisms/TableHolder'
-import { ProductData } from '../../../types/products'
+import {
+  ColDataType,
+  RowDataType,
+} from '../../../components/shared/organisms/TableHolder'
+import { ProductData, ProductVariations } from '../../../types/products'
 
 export const extractTitlesFromInventory = (productsData: ProductData[]) => {
   const tableTitles = remove(['Name', ...keys(productsData[0].variations[0])])
@@ -14,47 +17,24 @@ export const createTableHolderRowDataFromInventory = (
 ) => {
   const tableData: RowDataType[] = []
 
+  if (productsData.length < 1) return tableData
+
   for (let i = 0; i < productsData.length; i++) {
     tableData.push({
       id: productsData[i].variations[0].id,
       colData: [
-        {
-          id: productsData[i].id + '-name',
-          contentEntry: {
-            rowSpan: 5,
-            content: productsData[i].name,
-          },
-        },
-        {
-          id: productsData[i].variations[0].id + '-sku',
-          contentEntry: {
-            content: productsData[i].variations[0].sku,
-          },
-        },
-        {
-          id: productsData[i].variations[0].id + '-price',
-          contentEntry: {
-            content: productsData[i].variations[0].price,
-          },
-        },
-        {
-          id: productsData[i].variations[0].id + '-size',
-          contentEntry: {
-            content: productsData[i].variations[0].size,
-          },
-        },
-        {
-          id: productsData[i].variations[0].id + '-quantity',
-          contentEntry: {
-            content: productsData[i].variations[0].quantity,
-          },
-        },
-        {
-          id: productsData[i].variations[0].id + '-permalink',
-          contentEntry: {
-            content: productsData[i].variations[0].permalink,
-          },
-        },
+        ...addVariationInformationToColData(
+          [
+            {
+              id: productsData[i].id + '-name',
+              contentEntry: {
+                rowSpan: productsData[i].variations.length,
+                content: productsData[i].name,
+              },
+            },
+          ],
+          productsData[i].variations[0]
+        ),
       ],
     })
 
@@ -62,30 +42,56 @@ export const createTableHolderRowDataFromInventory = (
       tableData.push({
         id: productsData[i].variations[j].id,
         colData: [
-          {
-            id: productsData[i].variations[j].id + '-sku',
-            contentEntry: { content: productsData[i].variations[j].sku },
-          },
-          {
-            id: productsData[i].variations[j].id + '-price',
-            contentEntry: { content: productsData[i].variations[j].price },
-          },
-          {
-            id: productsData[i].variations[j].id + '-size',
-            contentEntry: { content: productsData[i].variations[j].size },
-          },
-          {
-            id: productsData[i].variations[j].id + '-quantity',
-            contentEntry: { content: productsData[i].variations[j].quantity },
-          },
-          {
-            id: productsData[i].variations[j].id + '-permalink',
-            contentEntry: { content: productsData[i].variations[j].permalink },
-          },
+          ...addVariationInformationToColData(
+            [],
+            productsData[i].variations[j]
+          ),
         ],
       })
     }
   }
 
   return tableData
+}
+
+export const addVariationInformationToColData = (
+  colData: ColDataType[],
+  variation: ProductVariations
+) => {
+  const { id, sku, price, size, quantity, permalink } = variation
+
+  colData.push(
+    {
+      id: id + '-sku',
+      contentEntry: {
+        content: sku,
+      },
+    },
+    {
+      id: id + '-price',
+      contentEntry: {
+        content: price,
+      },
+    },
+    {
+      id: id + '-size',
+      contentEntry: {
+        content: size,
+      },
+    },
+    {
+      id: id + '-quantity',
+      contentEntry: {
+        content: quantity,
+      },
+    },
+    {
+      id: id + '-permalink',
+      contentEntry: {
+        content: permalink,
+      },
+    }
+  )
+
+  return colData
 }
